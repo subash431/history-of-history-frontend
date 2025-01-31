@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-admin-panel',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css'],
+  styleUrls: [],
   imports: [CommonModule, RouterLink],
 })
 export class AdminComponent implements OnInit {
