@@ -1,0 +1,45 @@
+<div class="admin-panel max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <h2 class="text-3xl font-semibold text-center mb-6">Welcome, Admin</h2>
+    
+    <button (click)="logout()" class="btn btn-primary mb-6 w-full py-2">Logout</button>
+    
+    <div *ngIf="isAdminLoggedIn">
+      <h3 class="text-2xl font-medium text-center mb-6">Manage Events, Figures, and Locations</h3>
+      <!-- Add CRUD operations for events, figures, and locations here -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <!-- Sample card layout for managing different sections -->
+        <div class="card card-bordered w-full bg-base-100 shadow-xl">
+          <div class="card-body">
+            <h4 class="text-lg font-semibold">Events</h4>
+            <p class="text-sm text-gray-500">Manage events here.</p>
+            <div class="flex flex-wrap gap-2 flex-row">
+              <button class="btn btn-primary w-full"><a routerLink="/addEvent">Add Event</a></button>
+            <button class="btn btn-primary w-full"><a routerLink="/all-event">View All Event</a></button>
+            <!-- <li><a routerLink="/login" class="hover:underline">Admin</a></li> -->
+
+            </div>
+
+            
+          </div>
+        </div>
+        <div class="card card-bordered w-full bg-base-100 shadow-xl">
+          <div class="card-body">
+            <h4 class="text-lg font-semibold">Figures</h4>
+            <p class="text-sm text-gray-500">Manage figures here.</p>
+            <button class="btn btn-primary w-full">Add Figure</button>
+          </div>
+        </div>
+        <div class="card card-bordered w-full bg-base-100 shadow-xl">
+          <div class="card-body">
+            <h4 class="text-lg font-semibold">Locations</h4>
+            <p class="text-sm text-gray-500">Manage locations here.</p>
+            <button class="btn btn-primary w-full">Add Location</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  

@@ -1,0 +1,21 @@
+<section id="events" class="py-8">
+  <div class="flex flex-wrap justify-center gap-8">
+    <div *ngFor="let event of events" class="card w-80 md:w-96 bg-base-100 shadow-xl">
+      <!-- Image Carousel -->
+      <div class="carousel w-full h-56">
+        <div *ngFor="let img of event.image" class="carousel-item w-full">
+          <img [src]="img" [alt]="event.title" class="w-full h-56 object-cover" />
+        </div>
+      </div>
+
+      <!-- Card Content -->
+      <div class="card-body p-4">
+        <h2 class="card-title text-lg font-semibold text-gray-800">{{ event.title }}</h2>
+        <p class="text-sm text-gray-600 line-clamp-2">{{ event.description }}</p>
+        <div class="card-actions justify-end">
+          <button [routerLink]="['/events', event._id]" class="btn btn-primary rounded-full px-4 py-2 text-white">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

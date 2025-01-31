@@ -1,0 +1,69 @@
+
+<app-nav-bar></app-nav-bar>
+
+<div class="container mx-auto p-6 bg-white rounded-lg shadow-lg max-w-4xl">
+    <h2 class="text-3xl font-semibold text-center mb-6 text-gray-700">Add Event</h2>
+  
+    <form [formGroup]="eventForm" (ngSubmit)="onSubmit()" class="space-y-6">
+      
+      <!-- Event Title -->
+      <div class="mb-4">
+        <label for="title" class="block text-lg font-medium text-gray-700">Event Title</label>
+        <input id="title" formControlName="title" class="form-input mt-2 p-3 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-primary" type="text" />
+        <div *ngIf="eventForm.get('title')?.invalid && eventForm.get('title')?.touched" class="text-red-500 text-sm mt-2">
+          Title is required.
+        </div>
+      </div>
+  
+      <!-- Event Date -->
+      <div class="mb-4">
+        <label for="date" class="block text-lg font-medium text-gray-700">Event Date</label>
+        <input id="date" formControlName="date" class="form-input mt-2 p-3 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-primary" type="date" />
+        <div *ngIf="eventForm.get('date')?.invalid && eventForm.get('date')?.touched" class="text-red-500 text-sm mt-2">
+          Date is required.
+        </div>
+      </div>
+  
+      <!-- Description -->
+      <div class="mb-4">
+        <label for="description" class="block text-lg font-medium text-gray-700">Description</label>
+        <textarea id="description" formControlName="description" class="form-input mt-2 p-3 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-primary" rows="4"></textarea>
+        <div *ngIf="eventForm.get('description')?.invalid && eventForm.get('description')?.touched" class="text-red-500 text-sm mt-2">
+          Description is required.
+        </div>
+      </div>
+  
+      <!-- Location -->
+      <div class="mb-4">
+        <label for="location" class="block text-lg font-medium text-gray-700">Location</label>
+        <input id="location" formControlName="location" class="form-input mt-2 p-3 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-primary" type="text" />
+        <div *ngIf="eventForm.get('location')?.invalid && eventForm.get('location')?.touched" class="text-red-500 text-sm mt-2">
+          Location is required.
+        </div>
+      </div>
+  
+      <!-- Related Figures (Optional) -->
+      <div class="mb-4">
+        <label for="relatedFigures" class="block text-lg font-medium text-gray-700">Related Figures (optional)</label>
+        <input id="relatedFigures" formControlName="relatedFigures" class="form-input mt-2 p-3 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-primary" type="text" />
+      </div>
+  
+      <!-- Image URLs (Optional) -->
+      <div class="mb-4">
+        <label for="image" class="block text-lg font-medium text-gray-700">Image URLs (optional)</label>
+        <input id="image" formControlName="image" class="form-input mt-2 p-3 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-primary" type="text" />
+      </div>
+  
+      <!-- Multimedia URLs (Optional) -->
+      <div class="mb-4">
+        <label for="multimedia" class="block text-lg font-medium text-gray-700">Multimedia URLs (optional)</label>
+        <input id="multimedia" formControlName="multimedia" class="form-input mt-2 p-3 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-primary" type="text" />
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit" [disabled]="eventForm.invalid" class="btn btn-primary w-full py-3 mt-6">
+        Submit
+      </button>
+    </form>
+  </div>
+  

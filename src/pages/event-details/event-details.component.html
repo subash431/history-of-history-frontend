@@ -1,0 +1,68 @@
+<app-nav-bar></app-nav-bar>
+<section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <!-- Event Details -->
+      <div class="card w-full md:w-2/3 bg-base-100 shadow-xl mx-auto mb-8">
+        <div class="carousel w-full">
+          <!-- Loop through the images array -->
+          <div *ngFor="let img of event?.image; let i = index" class="w-full mr-6 cursor-pointer">
+            <img [src]="img" alt="{{ event?.title }}" class="w-full h-56 object-cover rounded-lg shadow-md transition-transform duration-300 ease-in-out hover:scale-105" />
+          </div>
+        </div>
+        <!-- <div *ngFor="let img of event?.multimedia; let i = index" class="w-full mr-6 cursor-pointer">
+          <img [src]="img" alt="{{ event?.title }}" class="w-full h-56 object-cover rounded-lg shadow-md transition-transform duration-300 ease-in-out hover:scale-105" />
+        </div> -->
+        
+
+        <div class="card-body p-6">
+          <h1 class="card-title text-2xl font-bold text-gray-800">{{ event?.title }}</h1>
+          <p class="text-gray-600 mt-4">{{ event?.description }}</p>
+
+          <!-- Like Section -->
+          <div class="flex items-center mt-4">
+            <button 
+              (click)="toggleLike()"
+              class="flex items-center text-lg text-blue-600 hover:text-blue-800 focus:outline-none">
+              <span class="mr-2">{{ isLiked ? 'Liked' : 'Like' }}</span>
+              <svg *ngIf="!isLiked" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 2l2 2 4-4m0 0L14 2l-2 2m4-4v4m0 0l4 4-4 4m0-4H10m0 0l-2 2-2-2m4 0H6m0 0l4-4-4-4" />
+              </svg>
+              <svg *ngIf="isLiked" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12l5 5L20 7" />
+              </svg>
+            </button>
+            <span class="ml-2 text-gray-700">{{ likeCount }} Likes</span>
+          </div>
+          <!-- <div *ngFor="let img of event?.multimedia; let i = index" class="w-full mr-6 cursor-pointer">
+            <img [src]="img" alt="{{ event?.title }}" class="w-full h-56 object-cover rounded-lg shadow-md transition-transform duration-300 ease-in-out hover:scale-105" />
+          </div> -->
+          <div *ngFor="let img of event?.multimedia; let i = index" class="w-full mr-6 cursor-pointer">
+            <a class="btn btn-primary mt-4 rounded-full w-full md:w-auto" [href]="img">Watch video</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comment Section -->
+      <div class="card w-full md:w-2/3 bg-base-100 shadow-xl mx-auto p-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Comments</h2>
+
+        <!-- Comment Form -->
+        <form (submit)="addComment()" class="mb-6">
+          <textarea
+            [(ngModel)]="newComment"
+            [ngModelOptions]="{standalone: true}"
+            class="textarea textarea-bordered w-full h-32 resize-none p-4 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            placeholder="Add your comment here..."
+          ></textarea>
+          <button class="btn btn-primary mt-4 rounded-full w-full md:w-auto">Submit</button>
+        </form>
+
+        <!-- List of Comments -->
+        <div *ngFor="let comment of comments" class="mb-4">
+          <div class="bg-gray-100 p-4 rounded-md shadow-md hover:bg-gray-200">
+            <p class="text-gray-700">{{ comment }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
